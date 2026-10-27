@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Julia Witas</title>
-<meta name="description" content="Julia Witas is a Berlin-based multidisciplinary artist working across music, film, and performance. Exploring transformative dimensions of sound, grief, and memory, she crafts cinematic compositions from atmospheric, multi-instrumental soundscapes, field recordings, dynamic vocals, and sculptural breath. Moving between dark distortion and poetic fragility, her performances unfold with introspective yet visceral intensity.">
+<meta name="description" content="Julia Witas works across sound, image, and performance, exploring the affective and transformative dimensions of memory, grief, nature, intimacy, and dreams. Witas follows an experimental approach to music, combining voice and songwriting with multi-instrumental soundscapes, drone, field recordings, sculptural breath and extended vocal techniques. Moving between consuming distortion and poetic fragility, her work carries an introspective yet visceral intensity.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <style>
@@ -22,14 +22,55 @@
     background: #ffffff;
     text-align: left;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
 
-  img {
-    display: block;
+  main {
+    flex: 1 0 auto;
+  }
+
+  .portraits {
+    position: relative;
     width: 100%;
     max-width: 600px;
     margin-bottom: 1.4em;
-    cursor: default;
+    cursor: pointer;
+  }
+
+  .portraits img {
+    display: block;
+    width: 100%;
+  }
+
+  .portraits .img2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    object-fit: cover;
+    visibility: hidden;
+  }
+
+  .portraits:hover .img2 {
+    visibility: visible;
+  }
+
+  /* on mobile; tap toggles portrait 1 <-> 2 instead of hover */
+  @media (hover: none) {
+    .portraits {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .portraits:hover .img2 {
+      visibility: hidden;
+    }
+
+    .portraits.swapped .img2 {
+      visibility: visible;
+    }
   }
 
   h1 {
@@ -40,39 +81,105 @@
   }
 
   p {
-    display: inline;
     font-family: "Times New Roman", Times, serif;
     font-size: 1em;
     line-height: 1.4;
+    margin-bottom: 1.4em;
   }
 
   a {
     color: #000000;
-    text-decoration: none;
-    cursor: pointer;
+    /* text-decoration: none; */
+    /* cursor: pointer; */
   }
 
   .bio {
     max-width: 600px;
     display: block;
+  }
+
+  /* logic for h1 and first paragraph to flow as one block ↓ */
+  .lead {
+    line-height: 1.4;
     margin-bottom: 1.4em;
   }
 
-  .contact {
-    max-width: 600px;
-    font-family: "Times New Roman", Times, serif;
+  .lead p {
+    display: inline;
+    margin: 0;
+  }
+
+  /* hanging indent for cv entries ↓ */
+  .cv {
+    margin-bottom: 1.4em;
+  }
+
+  .cv p {
+    margin: 0;
+    padding-left: 4.4em;
+    text-indent: -4.4em;
+  }
+
+  .portfolio-note {
+    margin-top: 4.2em;
+  }
+
+  footer {
+    margin-top: 2.4em;
+  }
+
+  footer p {
     font-size: 1em;
-    line-height: 1.4;
+    margin: 0;
   }
 </style>
 </head>
 <body>
 
-  <img src="JULIAWITAS_ROTERSALON.jpg" alt="Julia Witas" title="Julia Witas at Roter Salon &copy; Thomas Kuenzel">
+  <main>
 
-  <div class="bio"><h1>Julia Witas</h1> <p>is a Berlin-based multidisciplinary artist working across music, film, and performance. Exploring transformative dimensions of sound, grief, and memory, she crafts cinematic compositions from atmospheric, multi-instrumental soundscapes, field recordings, dynamic vocals, and sculptural breath. Moving between dark distortion and poetic fragility, her performances unfold with introspective yet visceral intensity.</p></div>
+  <div class="portraits" title="Julia Witas &copy; Vincenzo Forino">
+    <img class="img1" src="julia-witas-vincenzofrno-one.png" alt="Julia Witas">
+    <img class="img2" src="julia-witas-vincenzofrno-two.png" alt="Julia Witas">
+  </div>
 
-  <p class="contact"><a href="mailto:juliavvitas@gmail.com">Contact</a>, <a href="https://linktr.ee/juliawitas" target="_blank" rel="noopener">Links</a></p>
+  <div class="bio">
+
+    <div class="lead"><h1>Julia Witas</h1> <p>works across sound, image, and performance, exploring the affective and transformative dimensions of memory, grief, nature, intimacy, and dreams. Witas follows an experimental approach to music, combining voice and songwriting with multi-instrumental soundscapes, drone, field recordings, sculptural breath and extended vocal techniques. Moving between consuming distortion and poetic fragility, her work carries an introspective yet visceral intensity.</p></div>
+
+    <p>Witas has presented work internationally in solo and collaborative formats across a diverse range of spaces, including Volksb&uuml;hne (Berlin, DE), Halle am Berghain (Berlin, DE), MS Stubnitz (Hamburg, DE), Astra (Berlin, DE), Stadtwerkstatt (Linz, AT), Das Lot (Vienna, AT) and Lost Angeles (Los Angeles, US).</p>
+
+    <p>&nbsp;*1994, Havre de Grace, Maryland<br>based in Berlin, Germany</p>
+
+    <div class="cv">
+      <p>2021&mdash;2025&nbsp; <em>M.A. Time-based Media</em><br>University of Arts Linz</p>
+      <p>2014&mdash;2019&nbsp; <em>B.A. Communication Design</em><br>FHWS, University of Applied<br>Sciences W&uuml;rzburg-Schweinfurt</p>
+    </div>
+
+    <div class="portfolio-note">
+      <p><em>in construction, portfolio on demand</em></p>
+
+      <p><a href="mailto:juliavvitas@gmail.com">contact</a> &vert; <a href="https://www.instagram.com/juliavvitas/">instagram</a> &vert; <a href="https://linktr.ee/juliawitas" target="_blank">links</a></p>
+    </div>
+
+  </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; Julia Witas &vert; All rights reserved.</p>
+  </footer>
+
+  <!-- transparency: i asked the clanker to do this, god forbid ↓ -->
+  <script>
+    (function () {
+      var box = document.querySelector('.portraits');
+      var touch = window.matchMedia('(hover: none)');
+      box.addEventListener('click', function () {
+        if (touch.matches) box.classList.toggle('swapped');
+      });
+    })();
+  </script>
 
 </body>
 </html>
