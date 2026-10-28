@@ -2,7 +2,7 @@ backend:
   name: github
   repo: nzrov/juliawitas
   branch: main
-  base_url: https://juliawitas.vladislavnazarov.workers.dev
+  base_url: https://sveltia-witas-auth.vladislavnazarov.workers.dev
 
 # required by the CMS, but unused (no images are edited here)
 media_folder: uploads
