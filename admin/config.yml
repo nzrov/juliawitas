@@ -2,8 +2,7 @@ backend:
   name: github
   repo: nzrov/juliawitas
   branch: main
-  # URL of the free Cloudflare Worker that handles "Login with GitHub" (see setup steps) - replace this:
-  base_url: https://sveltia-cms-auth.REPLACE-ME.workers.dev
+  base_url: https://sveltia-cms-auth.juliawitas.vladislavnazarov.workers.dev
 
 # required by the CMS, but unused (no images are edited here)
 media_folder: uploads
