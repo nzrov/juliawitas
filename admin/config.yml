@@ -1,0 +1,52 @@
+backend:
+  name: github
+  repo: nzrov/juliawitas
+  branch: main
+  # URL of the free Cloudflare Worker that handles "Login with GitHub" (see setup steps) - replace this:
+  base_url: https://sveltia-cms-auth.REPLACE-ME.workers.dev
+
+# required by the CMS, but unused (no images are edited here)
+media_folder: uploads
+public_folder: /uploads
+
+collections:
+  - name: site
+    label: Website text
+    editor:
+      preview: false
+    files:
+      - name: bio
+        label: Bio, CV and links
+        file: _data/bio.yml
+        fields:
+          - label: Intro paragraph
+            name: lead
+            widget: text
+            hint: "Continues right after the name, so the page reads: Julia Witas [this text]. Start with a lowercase verb, e.g. works across..."
+          - label: Second paragraph
+            name: paragraph
+            widget: text
+          - label: Details (one line per row)
+            name: details
+            widget: text
+            hint: "e.g. birth year and place on the first line, where she is based on the second"
+          - label: Education
+            name: education
+            widget: list
+            summary: "{{fields.years}} {{fields.degree}}"
+            fields:
+              - { label: Years, name: years, widget: string, hint: "e.g. 2021-2025 (use the long dash: 2021—2025)" }
+              - { label: Degree, name: degree, widget: string }
+              - { label: Institution, name: institution, widget: string }
+          - label: Short note
+            name: note
+            widget: string
+            hint: "The line above the links"
+          - label: Links
+            name: links
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { label: Text shown, name: label, widget: string }
+              - { label: Address, name: url, widget: string, hint: "Web address (https://...) or an email as mailto:name@example.com" }
+              - { label: Open in a new tab, name: new_tab, widget: boolean, default: false, required: false }

@@ -1,12 +1,15 @@
+---
+---
 <!DOCTYPE html>
 <!-- made with <3 by vlad -->
 <!-- vladislavnazarov.com -->
+<!-- the text below the portraits comes from _data/bio.yml (edited via /admin) - edit the layout here, not the text -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Julia Witas</title>
-<meta name="description" content="Julia Witas works across sound, image, and performance, exploring the affective and transformative dimensions of memory, grief, nature, intimacy, and dreams. Witas follows an experimental approach to music, combining voice and songwriting with multi-instrumental soundscapes, drone, field recordings, sculptural breath and extended vocal techniques. Moving between consuming distortion and poetic fragility, her work carries an introspective yet visceral intensity.">
+<meta name="description" content="Julia Witas {{ site.data.bio.lead | strip_newlines | escape }}">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <style>
@@ -37,7 +40,7 @@
     width: 100%;
     max-width: 600px;
     margin-bottom: 1.4em;
-    cursor: pointer;
+    cursor: default;
   }
 
   .portraits img {
@@ -58,7 +61,7 @@
     visibility: visible;
   }
 
-  /* on mobile; tap toggles portrait 1 <-> 2 instead of hover */
+  /* on mobile; tap toggles portrait 1 <-> 2 instead of hover... straight up clanka'd it... */
   @media (hover: none) {
     .portraits {
       -webkit-tap-highlight-color: transparent;
@@ -109,15 +112,22 @@
     margin: 0;
   }
 
+  /* bio text fully justified to the box */
+  .lead,
+  .justify {
+    text-align: justify;
+  }
+
   /* hanging indent for cv entries ↓ */
   .cv {
     margin-bottom: 1.4em;
   }
 
   .cv p {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: 0.5em;
     margin: 0;
-    padding-left: 4.4em;
-    text-indent: -4.4em;
   }
 
   .portfolio-note {
@@ -125,7 +135,12 @@
   }
 
   footer {
-    margin-top: 2.4em;
+    margin-top: 0;
+  }
+
+  /* last line sits 20px from the bottom, same as the top/sides */
+  .portfolio-note p:last-child {
+    margin-bottom: 0;
   }
 
   footer p {
@@ -145,21 +160,21 @@
 
   <div class="bio">
 
-    <div class="lead"><h1>Julia Witas</h1> <p>works across sound, image, and performance, exploring the affective and transformative dimensions of memory, grief, nature, intimacy, and dreams. Witas follows an experimental approach to music, combining voice and songwriting with multi-instrumental soundscapes, drone, field recordings, sculptural breath and extended vocal techniques. Moving between consuming distortion and poetic fragility, her work carries an introspective yet visceral intensity.</p></div>
+    <div class="lead"><h1>Julia Witas</h1> <p>{{ site.data.bio.lead | escape }}</p></div>
 
-    <p>Witas has presented work internationally in solo and collaborative formats across a diverse range of spaces, including Volksb&uuml;hne (Berlin, DE), Halle am Berghain (Berlin, DE), MS Stubnitz (Hamburg, DE), Astra (Berlin, DE), Stadtwerkstatt (Linz, AT), Das Lot (Vienna, AT) and Lost Angeles (Los Angeles, US).</p>
+    <p class="justify">{{ site.data.bio.paragraph | escape }}</p>
 
-    <p>&nbsp;*1994, Havre de Grace, Maryland<br>based in Berlin, Germany</p>
+    <p>{{ site.data.bio.details | escape | newline_to_br }}</p>
 
     <div class="cv">
-      <p>2021&mdash;2025&nbsp; <em>M.A. Time-based Media</em><br>University of Arts Linz</p>
-      <p>2014&mdash;2019&nbsp; <em>B.A. Communication Design</em><br>FHWS, University of Applied<br>Sciences W&uuml;rzburg-Schweinfurt</p>
+      {% for e in site.data.bio.education %}
+      <p><span>{{ e.years | escape }}</span> <span>{{ e.degree | escape }}<br>{{ e.institution | escape }}</span></p>
+      {% endfor %}
     </div>
 
     <div class="portfolio-note">
-      <p><em>in construction, portfolio on demand</em></p>
-
-      <p><a href="mailto:juliavvitas@gmail.com">contact</a> &vert; <a href="https://www.instagram.com/juliavvitas/">instagram</a> &vert; <a href="https://linktr.ee/juliawitas" target="_blank">links</a></p>
+      <p>{{ site.data.bio.note | escape }}<br>
+      {% for link in site.data.bio.links %}<a href="{{ link.url | escape }}"{% if link.new_tab %} target="_blank" rel="noopener"{% endif %}>{{ link.label | escape }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
     </div>
 
   </div>
@@ -167,7 +182,6 @@
   </main>
 
   <footer>
-    <p>&copy; Julia Witas &vert; All rights reserved.</p>
   </footer>
 
   <!-- transparency: i asked the clanker to do this, god forbid ↓ -->
