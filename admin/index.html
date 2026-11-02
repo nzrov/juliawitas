@@ -1,5 +1,71 @@
 <!doctype html>
 <html lang="en">
+  <style>
+  /* Sveltia CMS: black & white, Times New Roman, square corners (matches the site).
+     Everything below overrides Sveltia's own style variables (--sui-...). */
+  :root {
+    color-scheme: light !important; /* always light, even if the computer is in dark mode */
+
+    /* font */
+    --sui-font-family-default: "Times New Roman", Times, serif !important;
+    --sui-font-size-default: 16px !important;
+    --sui-font-size-small: 14px !important;
+    --sui-font-size-x-small: 12px !important;
+    --sui-heading-font-weight: 400 !important;
+
+    /* text: black, with grays for secondary text */
+    --sui-foreground-color-1-hsl: 0 0% 0% !important;
+    --sui-foreground-color-2-hsl: 0 0% 0% !important;
+    --sui-foreground-color-3-hsl: 0 0% 25% !important;
+    --sui-foreground-color-4-hsl: 0 0% 40% !important;
+    --sui-foreground-color-5-hsl: 0 0% 65% !important;
+
+    /* backgrounds: white everywhere, light gray only for hover / selected */
+    --sui-background-color-1-hsl: 0 0% 100% !important;
+    --sui-background-color-2-hsl: 0 0% 100% !important;
+    --sui-background-color-3-hsl: 0 0% 100% !important;
+    --sui-background-color-4-hsl: 0 0% 100% !important;
+    --sui-background-color-5-hsl: 0 0% 90% !important;
+
+    /* lines */
+    --sui-border-color-1-hsl: 0 0% 0% !important;
+    --sui-border-color-2-hsl: 0 0% 78% !important;
+    --sui-border-color-3-hsl: 0 0% 88% !important;
+
+    /* accent (main button, switches, links, focus ring): black */
+    --sui-primary-accent-color: hsl(0 0% 0%) !important;
+    --sui-primary-accent-color-dark: hsl(0 0% 15%) !important;
+    --sui-primary-accent-color-light: hsl(0 0% 20%) !important;
+    --sui-primary-accent-color-text: hsl(0 0% 0%) !important;
+    --sui-primary-accent-color-inverted: hsl(0 0% 100%) !important;
+    --sui-primary-accent-color-translucent: hsl(0 0% 0% / 35%) !important;
+    --sui-primary-accent-color-translucent-light: hsl(0 0% 0% / 20%) !important;
+
+    /* messages (info / success / warning / error): grays instead of colors */
+    --sui-alert-foreground-color-saturation: 0% !important;
+    --sui-alert-background-color-saturation: 0% !important;
+    --sui-alert-border-color-saturation: 0% !important;
+    --sui-alert-foreground-color-lightness: 25% !important;
+    --sui-alert-background-color-lightness: 95% !important;
+    --sui-alert-border-color-lightness: 70% !important;
+  }
+
+  html {
+    background: #ffffff;
+  }
+
+  * {
+    border-radius: 0 !important; /* square corners */
+  }
+
+  img.avatar {
+    filter: grayscale(1);
+  }
+
+  button.sui.button.link {
+    text-decoration: underline; /* links no longer have a color, so underline them */
+  }
+</style>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
