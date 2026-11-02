@@ -1,6 +1,6 @@
 app_title: Julia Witas / CMS
 logo:
-  src: /favicon.png
+  src: /sveltia-login-img.png
 backend:
   name: github
   repo: nzrov/juliawitas
