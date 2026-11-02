@@ -70,21 +70,11 @@
     visibility: hidden;
   }
 
-  .portraits:hover .img2 {
+   .portraits:hover .img2 {
     visibility: visible;
   }
 
-  /* on mobile; tap toggles portrait 1 <-> 2 instead of hover... straight up clanka'd it... */
-  @media (hover: none) {
-    .portraits {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .portraits:hover .img2 {
-      visibility: hidden;
-    }
-
- /* credit for portrait 2 (phones only): vertical, white, bottom-left of the photo */
+  /* credit for portrait 2 (phones only): vertical, white, bottom-left of the photo */
   .portraits .credit {
     display: none;
     position: absolute;
@@ -102,16 +92,25 @@
     transform: rotate(180deg); /* reads bottom to top */
   }
 
+  /* on mobile; tap toggles portrait 1 <-> 2 instead of hover... straight up clanka'd it... */
+  @media (hover: none) {
+    .portraits {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .portraits:hover .img2 {
+      visibility: hidden;
+    }
+
     .portraits.swapped .img2 {
       visibility: visible;
     }
 
-       .portraits.swapped .credit {
+    .portraits.swapped .credit {
       display: block;
     }
-   
   }
-
+ 
   h1 {
     display: inline;
     font-family: "Times New Roman", Times, serif;
