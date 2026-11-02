@@ -84,7 +84,7 @@
       visibility: hidden;
     }
 
-     /* credit for portrait 2 (phones only): vertical, white, bottom-left of the photo */
+ /* credit for portrait 2 (phones only): vertical, white, bottom-left of the photo */
   .portraits .credit {
     display: none;
     position: absolute;
@@ -93,9 +93,13 @@
     z-index: 1;
     padding: 8px;
     color: #ffffff;
+    opacity: 0.8;
+    text-decoration: none;
     font-size: 0.8em;
     line-height: 1;
     writing-mode: vertical-rl;
+    text-orientation: sideways; /* every character (also the ©) is turned the same way */
+    transform: rotate(180deg); /* reads bottom to top */
   }
 
     .portraits.swapped .img2 {
