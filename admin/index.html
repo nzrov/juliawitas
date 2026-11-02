@@ -72,6 +72,27 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Julia Witas</title>
 <link rel="icon" type="image/png" href="/favicon.png">
+<script>
+  // Sveltia swaps the tab icon for the login logo; this keeps the tab icon as the black circle.
+  (function () {
+    var icon = new URL('/favicon.png', location.href).href;
+    function apply() {
+      var links = document.querySelectorAll('link[rel~="icon"]');
+      if (!links.length) {
+        var l = document.createElement('link');
+        l.rel = 'icon'; l.type = 'image/png'; l.href = icon;
+        document.head.appendChild(l);
+        return;
+      }
+      links.forEach(function (l) {
+        if (l.type !== 'image/png') l.type = 'image/png';
+        if (l.href !== icon) l.href = icon;
+      });
+    }
+    new MutationObserver(apply).observe(document.head, { childList: true, subtree: true, attributes: true, attributeFilter: ['href', 'rel'] });
+    apply();
+  })();
+</script>
 </head>
 <body>
   <!-- Sveltia CMS, pinned to one version on purpose (it runs with Julia's GitHub login). Bump it now and then. -->
