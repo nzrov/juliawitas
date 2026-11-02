@@ -84,9 +84,28 @@
       visibility: hidden;
     }
 
+     /* credit for portrait 2 (phones only): vertical, white, bottom-left of the photo */
+  .portraits .credit {
+    display: none;
+    position: absolute;
+    left: 2px;
+    bottom: 2px;
+    z-index: 1;
+    padding: 8px;
+    color: #ffffff;
+    font-size: 0.8em;
+    line-height: 1;
+    writing-mode: vertical-rl;
+  }
+
     .portraits.swapped .img2 {
       visibility: visible;
     }
+
+       .portraits.swapped .credit {
+      display: block;
+    }
+   
   }
 
   h1 {
@@ -171,6 +190,7 @@
   <div class="portraits" title="&copy; Vincenzo Forino">
     <img class="img1" src="julia-witas-vincenzofrno-one.png" alt="Julia Witas">
     <img class="img2" src="julia-witas-vincenzofrno-two.png" alt="Julia Witas">
+   <a class="credit" href="https://www.instagram.com/vincenzofrno/" target="_blank" rel="noopener">&copy; Vincenzo Forino</a>
   </div>
 
   <div class="bio">
@@ -204,7 +224,8 @@
     (function () {
       var box = document.querySelector('.portraits');
       var touch = window.matchMedia('(hover: none)');
-      box.addEventListener('click', function () {
+           box.addEventListener('click', function (e) {
+        if (e.target.closest('.credit')) return; // tapping the credit opens the link, doesn't switch the photo
         if (touch.matches) box.classList.toggle('swapped');
       });
     })();
